@@ -494,7 +494,7 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Artificial Intelligence, AI, Ethical Impact Assessment, Value Sensitive Design
+Artificial Intelligence, AI, Ethical Impact Assessment (EIA), Value Sensitive Design(VSD)
 \end{IEEEkeywords}}
 
 
@@ -535,9 +535,10 @@ Artificial Intelligence, AI, Ethical Impact Assessment, Value Sensitive Design
 
 
 \subsection{Motivation and Overview}
-As artificial intelligence becomes increasingly integral to various fields, its widespread adoption raises pressing ethical concern, notably bias. As a leading member of the development of the emotion recognition software, it is my responsibility to evaluate the ethical implications of the software.
+As artificial intelligence becomes increasingly used in various fields, its widespread adoption raises pressing ethical concerns, notably bias. As a leading member of the development of emotion recognition software, it is my responsibility to evaluate the ethical implications of the software.
 
-This paper looks at the importance of ethical impact assessments in software development. Through an ethical impact assessment, I’ll show practical steps for addressing potential risks and harms. The paper concludes with concise recommendations for both technical and non-technical aspects of software development.
+This paper looks at the importance of Ethical Impact Assessments (EIA's) in software development. Through an EIA, I’ll show practical steps for addressing potential risks and harms. The paper concludes with recommendations for both technical and non-technical aspects of software development.
+
 
 \subsection{The Algorithm}
 The initial prototype of the software will use two main data sources. The AffectNet database will be used due to it having over 450,000 facial expression images, each annotated with an emotion\cite{DatabasePaper}. Additionally, we plan to acquire data from Meta or Google to further develop the model. If this secondary source of data doesn’t come pre-labelled, our initial action will be to organise teams to accurately categorise the images.
@@ -571,31 +572,54 @@ The Value Sensitive Design (VSD) approach is an approach based on theoretical pr
 \section{Ethical Impact Assessment}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.5\textwidth]{coursework/figs/table_ss.png}
-    \caption{The Ethical Impact Assessment}
+    \includegraphics[width=0.5\textwidth]{coursework/figs/Table2_ss.png}
+    \caption{The Ethical Impact Assessment, informed by the VSD}
     \label{fig:enter-label}
 \end{figure}
 
 \subsection{Analysis of the Key Value Conflicts}
-I identified human values using various sources, including the paper \textit{Value Sensitive Design and Information Systems by Batya Friedman, Peter H. Kahn Jr and Alan Borning} \cite{Friedman2009Value}. This article touches upon the importance of several key human values, including Privacy, Bias, Trust, Consent, and Accountability. Privacy is a core value for all stakeholders to ensure the protection of personal information. Trust, Consent, and Accountability are essential for large bodies to ensure that the public can trust them. Discrimination is discussed in the article \textit{Ethics and Discrimination in Artificial Intelligence-enabled Recruitment Practices by Zhisheng Chen}\cite{Discrimination}. Chen concludes that algorithmic bias in AI remains an issue while the people developing these algorithms benefit in terms of cost, labour, and efficiency. They also touch upon how the source of the Discrimination lies in historical data. Bias and Discrimination are crucial concerns for the affected individuals and society.
+I identified human values using various sources, including \textit{Batya Friedman’s Value Sensitive Design and Information Systems}, discussing the importance of Privacy, Trust, Consent, Accountability and Public Trust\cite{Friedman2009Value}. These values are vital to consider harbouring a sense of trust and security towards the software. \textit{Zhisheng Chen’s Ethics and Discrimination in artificial intelligence-enabled Recruitment Practices} concludes persistent algorithmic bias is due to historical data \cite{Discrimination}.
 
-The value conflict analysis shown in Fig.2 simply highlights important human ethical values that should be considered before the development and deployment of the software. A potential value conflict could be Public Trust and Transparency against Collaborative Integrity. If the companies that we collaborate with don’t approve of certain methods in gaining Public Trust (such as wishing to disclose less information to ensure competitors don’t get an edge) then these two values will be conflicting. To resolve this, it is imperative that we communicate accordingly with our collaborators. Public trust should be prioritised because it will ensure the sustainability and longevity of the company. More importantly, prioritising Public Trust shows a commitment to ethical responsibility. Privacy could conflict with Transparency. The protection of an individual’s privacy may conflict with the need for transparency because full transparency may involve disclosing sensitive information. In this case, Privacy must be prioritised as much as possible, while ensuring that transparency regulations are met. Finally, Dignity could conflict with Consent. An individual may consent without being fully aware of how their data is used and shared. In this case, we should make it as clear as possible to the individuals using the software how their data will be used so that they can make an informed decision whether to consent.
+Fig.2 highlights the importance of considering ethical values before the software development stage. If collaborators prefer less disclosure, conflict could arise between Public Trust and Transparency. Prioritising public trust will ensure the sustainability and longevity of the company while demonstrating commitment to ethical responsibility. Privacy and Transparency may also conflict. Here, Privacy must be prioritised while ensuing that transparency regulations are met. 
 
-An additional action that should be taken is data manipulation (the reasoning is briefly mentioned in part 1.3). During data preparation, the identification and mitigation of bias in the data is crucial. To ensure that minority groups are represented, techniques such as synthetic data generation and weighted sampling should be used. However, we risk compromising the model’s accuracy by artificially manipulating the dataset.
 
 \section{Recommendations and Considerations}
 \subsection{Motivation and Recommendations}
+From the EIA, I found critical areas for further investigation and action to ensure the software is developed responsibly and ethically. I propose:
+\begin{itemize}
+    \item Privacy - a common concern for many stakeholders. Thus, this will be the top priority. Ensure a team is rigorously testing security.
+    \item Input from the stakeholders - Could be useful, either conduct meetings with stakeholders of use surveys to gather input.
+    \item Data manipulation - During data preparation, the identification and mitigation of bias in the data is crucial. To ensure that minority groups are represented, techniques such as synthetic data generation and weighted sampling should be used.
+    \item Consent – Attempt to inform users on how their data is used. Provide a brief overview and display it to users in an easy to digest format.
+\end{itemize}
+
 \subsection{Datasets}
+The datasets used should be free from all bias in an ideal world, however, this usually isn’t the case. The article \textit{Discrimination, Bias, Fairness, and Trustworthy AI by Daniel Varona and Juan Luis Suárez} highlights the struggle with standardising variables that are essential for creating trustworthy AI systems, making it difficult to incorporate trustworthiness into business models \cite{TrustworthinessAI}. We should consider that even with sufficient data cleaning, the software may not be void of bias. To make a completely fair model we risk having a low accuracy and efficiency.
+
+There are existing datasets available such as the AffectNet database (discussed in part 1.2). However, the datasets contain mainly images. The software should work on real-time video, so we would need to organise a team to collect more data in the form of videos. This would be a laborious and expensive task due to the time taken to collect sufficient data and the storage space required. To ensure the mitigation of bias in the data collection, we should let the subjects self-diagnose their emotions. The data collectors should be unaware of the purpose of data collection to prevent unconscious bias and we should ensure that the dataset includes a diverse range of faces.
+
 \subsection{Risk and Bias Mitigation Methods}
-\subsection{Critical Assessment and limitations}
+Harm to individuals and groups should be mitigated, or at least minimised, as much as possible. We should aim to improve the safety, fairness and equity of the system and promote responsible and ethical development. I will discuss a few tools/techniques/methods to do so for this project:
+\begin{itemize}
+    \item As mentioned in section 3.2, data collection should be diverse.
+    \item Regularly auditing algorithms using fairness metrics can be used to identify and measure bias. A toolkit like AI Fairness 360 should be employed to assess the model[insert source]. This solution connects with the Fairness, Bias and Discrimination sections of the EIA. This can minimise the damage caused by biased software, thus improving the fairness and equity of the system.
+    \item 	Involving stakeholders that could be affected in the design and evaluation process. Inviting stakeholders to comment and add extra values that they find important could be useful\cite{Lecture9}.  Their input and suggestions could be used in the design process. This solution connects with the Transparency and Public Trust of the EIA. This can demonstrate the team’s willingness to learn from the public while exhibiting openness.
+\end{itemize}
+
+\subsection{Critical Assessment and Limitations}
+Limitations associated with the proposed methods:
+\begin{itemize}
+    \item 	Privacy can never be fully guaranteed online as there is almost always a possible security fault that can be breached.  However, making it as difficult as possible should be sufficient. 
+    \item 	Meetings with stakeholders would be time consuming. However, for this task it would be useful to do so.
+    \item 	We risk compromising the model’s accuracy by artificially manipulating the dataset. It is a suitable method to use, if done cautiously.
+    \item 	Many users will choose to ignore the overview of data usage. This is difficult to mitigate and so may require additional thought for a better solution.
+    \item 	Collecting video data would be a laborious and expensive task due to the time taken to collect sufficient data and the storage space required. To ensure the mitigation of bias in the data collection, we should let the subjects self-diagnose their emotions. The data collectors should be unaware of the purpose of data collection to prevent unconscious bias and we should ensure that the dataset includes a diverse range of faces.
+\end{itemize}
 
 
 
-
-
-
-\section{Conclusion}
-The conclusion goes here.
+\section{Summary and Final Remarks}
+To briefly summarise this paper, we first defined the problem and looked at the importance of EIAs and the VSD approach. I then showed my EIA along with an analysis. Finally, using the EIA, I highlighted my recommendations and considerations. I hope this article has been informative and useful in the design and implementation stages of the development of our software.
 
 %references
 \bibliographystyle{plain}
